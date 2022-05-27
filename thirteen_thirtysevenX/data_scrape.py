@@ -20,8 +20,9 @@ def scraped_data(url):
     for key, value in my_dict.items():
         if value == url:
             name = key
-
-    browser = webdriver.Chrome(executable_path="../Chrome_driver/chromedriver.exe")
+    options = Options()
+    options.headless = True
+    browser = webdriver.Chrome(executable_path="../Chrome_driver/chromedriver.exe", options=options)
 
     browser.get(final_url)
     html_source = browser.page_source
